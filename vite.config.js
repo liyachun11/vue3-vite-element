@@ -19,7 +19,7 @@ module.exports = {
   outDir: "dist",
   port: 3000,
   // 是否自动在浏览器打开
-  open: false,
+  open: true,
   // 是否开启 https
   https: false,
   // 服务端渲染
