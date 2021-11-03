@@ -15,6 +15,8 @@ app.mount("#app");
 //全局配置
 //app.config.globalProperties.$http = axios;
 
+Vue.config.productionTip = false
+
 //这里想做成全局$bus 兄弟组件之间传值,结果vue3 貌似不是下面的语法,待研究...
 var EventBus = new h();
 Object.defineProperties(h.prototype, {
