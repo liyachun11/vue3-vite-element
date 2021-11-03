@@ -6,6 +6,8 @@ import router from "./route/index";
 import ElementPlus from "element-plus";
 import "element-plus/lib/theme-chalk/index.css";
 
+import "./api/axios.config"; //请求工具
+
 const app = createApp(App);
 app.use(router);
 app.use(ElementPlus);

@@ -30,6 +30,7 @@ export const getDetail = params => {
 };
 //列表
 export const getchannelList = params => {
+  console.log(99999, axios.MSG_BASE_CENTER)
   return axios.post(`${axios.MSG_BASE_CENTER}/channel/list`, params).then(res => res)
 };
 //模板--列表
