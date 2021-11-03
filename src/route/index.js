@@ -7,19 +7,31 @@ const routes = [
     path: "/",
     redirect: "/home",
   },
-  { path: "/home", component: () => import('../view/home.vue') },
-];
-const channelManagement = [
   {
-    path: '/channelManagement',
-    name: 'channelManagement',
-    component: () => import('../view/channelManagement.vue')
-  }
+    path: "/layout",
+    name: 'layout',
+    redirect: {
+      name: "home"
+    },
+    component: () => import('../view/layout.vue'),
+    children: [
+      {
+        path: '/home',
+        name: 'home',
+        component: () => import('../view/home.vue')
+      },
+      {
+        path: '/channelManagement',
+        name: 'channelManagement',
+        component: () => import('../view/channelManagement.vue')
+      }
+    ]
+  },
+
 ];
 // Vue-router新版本中，需要使用createRouter来创建路由
 export default createRouter({
   // 指定路由的模式,此处使用的是hash模式
   history: createWebHashHistory(),
   routes, // short for `routes: routes`
-  channelManagement,
 });

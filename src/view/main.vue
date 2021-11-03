@@ -1,4 +1,20 @@
 <template>
+  <el-menu theme="light" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+    <el-menu-item v-for="(item, index) in menList" :key="index" :index="index" @click="routeTo(item)">{{ item.name }}</el-menu-item>
+    <el-header style="text-align: right; font-size: 12px">
+      <el-dropdown>
+        <i class="el-icon-setting" style="margin-right: 15px"></i>
+        <template v-slot:dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item>查看</el-dropdown-item>
+            <el-dropdown-item>新增</el-dropdown-item>
+            <el-dropdown-item>删除</el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
+      <span>王小虎</span>
+    </el-header>
+  </el-menu>
   <el-container style="height: 500px; border: 1px solid #eee">
     <el-container>
       <el-main>
@@ -10,6 +26,11 @@
       </el-main>
     </el-container>
   </el-container>
+  <div class="content-main">
+    <transition name="fade-transform" mode="out-in">
+      <router-view />
+    </transition>
+  </div>
 </template>
 <script>
 // 这块用的"element-ui": "^2.15.6",vue3,vite  但elementUI的这个版本暂时不兼容vue3
@@ -20,7 +41,6 @@ export default {
   data() {
     return {
       tableData: [],
-      activeIndex: '1',
       menList: [
         { name: "渠道管理", url: "channelManagement" },
         { name: "模板管理", url: "channelManagement" },

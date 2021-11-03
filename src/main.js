@@ -4,7 +4,8 @@ import "./index.css";
 import router from "./route/index";
 //import axios from "./api/axios";
 import ElementPlus from "element-plus";
-import "element-plus/lib/theme-chalk/index.css";
+import '../node_modules/element-plus/lib/theme-chalk/index.css'
+
 
 import "./api/axios.config"; //请求工具
 
@@ -14,8 +15,6 @@ app.use(ElementPlus);
 app.mount("#app");
 //全局配置
 //app.config.globalProperties.$http = axios;
-
-Vue.config.productionTip = false
 
 //这里想做成全局$bus 兄弟组件之间传值,结果vue3 貌似不是下面的语法,待研究...
 var EventBus = new h();
